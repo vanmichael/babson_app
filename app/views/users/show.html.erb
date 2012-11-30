@@ -1,0 +1,68 @@
+<% provide(:title, full_name(@user.first_name, @user.last_name)) %>
+
+<div class="row">
+	<aside class="span4">
+		<section>
+			<h1>
+				<%= full_name(@user.first_name, @user.last_name) %>
+			</h1>
+		</section>
+		<% if @user.user_type == 1 %>
+		<%= link_to "New Student Application Form", new_app_path %>
+		<% end %>
+		<% if @user.user_type == 2 %>
+		<%= link_to "New Honors Faculty Recomendation", new_facultyrec_path %>
+		<% end %>
+		<% if @user.user_type == 3 %>
+		<%= link_to "New Committee Member Evaluation", new_committee_member_evaluation_path %>
+		<% end %>
+
+		<section>
+		</section>
+	</aside>
+</div>
+
+<div class="row">
+	<aside class="span12">
+		<section>
+			<h1>
+				Your Completed Documents
+			</h1>
+		</section>
+
+		<%-# For Student User Accounts -%>
+
+		<% if @user.user_type == 1 %>
+		<p>
+		<%= link_to "Your completed Student Application Form", @app %>
+		</p>
+
+		<p>
+		<%= link_to "Your professor's Completed Application Form", new_facultyrec_path %>
+		</p>
+
+		<p>
+		<%= link_to "Honors Faculty Recomendation", new_committee_member_evaluation_path %>
+		</p>
+		<% end %>
+
+		<%-# For Professor User Accounts -%>
+
+		<% if @user.user_type == 2 %>
+		<p>
+		<%= link_to "Your completed Faculty Rec Forms", facultyrecs_path %>
+		</p>
+		<% end %>
+
+		<%-# For Committee Member User Accounts -%>
+
+		<% if @user.user_type == 3 %>
+		<p>
+		<%= link_to "Your completed Evaluations", committee_member_evaluations_path %>
+		</p>
+		<% end %>
+
+		<section>
+		</section>
+	</aside>
+</div>
