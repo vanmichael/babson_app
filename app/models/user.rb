@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :first_name, :last_name, :email, :password, :password_confirmation, :user_type
+  attr_accessible :first_name, :last_name, :email, :password, :password_confirmation, :user_type, :avatar, :cellphone
 
   has_many :facultyrecs
   has_many :apps
@@ -16,9 +16,13 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6 }
   validates :password_confirmation, presence: true
 
+  require 'carrierwave/orm/activerecord'
+    mount_uploader :avatar, AvatarUploader
+
   private
 
   def create_remember_token
   	 self.remember_token = SecureRandom.urlsafe_base64
   end
 end
+
