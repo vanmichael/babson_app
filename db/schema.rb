@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130101115915) do
+ActiveRecord::Schema.define(:version => 20121129215558) do
 
   create_table "apps", :force => true do |t|
     t.integer "user_id"
@@ -25,11 +25,6 @@ ActiveRecord::Schema.define(:version => 20130101115915) do
     t.string  "q3"
     t.string  "q4"
     t.string  "agree"
-    t.string  "essay"
-    t.string  "transcript"
-    t.string  "faculty_email"
-    t.string  "faculty_rec_status"
-    t.string  "committee_eval_status"
   end
 
   create_table "committee_member_evaluations", :force => true do |t|
@@ -81,8 +76,6 @@ ActiveRecord::Schema.define(:version => 20130101115915) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_type"
-    t.string   "avatar"
-    t.string   "cellphone"
   end
 
 end
