@@ -23,9 +23,9 @@
 
 	<%= f.label :user_type %>
 	<%= f.select(:user_type, options_for_select([
-								['1', '1'],
-								['2', '2'],
-								['3', '3']
+								['Student Applicant', '1'],
+								['Faculty Member', '2'],
+								['Committee Member', '3']
 								])) %>
 
 	<%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
